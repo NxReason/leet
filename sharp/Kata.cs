@@ -10,4 +10,19 @@ public class Kata
     }
     return string.Join("", words);
   }
+
+  public static string HighAndLow(string numbers)
+  {
+    string[] numbersArr = numbers.Split(' ');
+    int high = int.Parse(numbersArr[0]);
+    int low = high;
+    foreach (var num in numbersArr)
+    {
+      int value = int.Parse(num);
+      if (value > high) high = value;
+      if (value < low) low = value;
+    }
+
+    return $"{high} {low}";
+  }
 }

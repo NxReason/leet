@@ -1,3 +1,4 @@
-﻿Console.WriteLine(Kata.ToCamelCase("the-stealth-warrior"));
-Console.WriteLine(Kata.ToCamelCase("The_Stealth_Warrior"));
-Console.WriteLine(Kata.ToCamelCase("The_Stealth-Warrior"));
+﻿
+Console.WriteLine(Kata.HighAndLow("1 2 3 4 5"));
+Console.WriteLine(Kata.HighAndLow("1 2 -3 4 5"));
+Console.WriteLine(Kata.HighAndLow("1 9 3 4 -5"));
