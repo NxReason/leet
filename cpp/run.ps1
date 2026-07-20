@@ -1,2 +1,2 @@
-g++ -Wall -std=c++23 find_unique_num.cpp -o app
+g++ -Wall -std=c++23 find_shortest.cpp -o app
 ./app
