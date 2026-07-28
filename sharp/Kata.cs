@@ -25,4 +25,14 @@ public class Kata
 
     return $"{high} {low}";
   }
+
+  public static bool IsPalindrome(int x)
+  {
+    if (x < 0) return false;
+
+    string original = x.ToString();
+    string reversed = new string(original.Reverse().ToArray());
+
+    return original == reversed;
+  }
 }
