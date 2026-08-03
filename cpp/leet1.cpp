@@ -34,7 +34,41 @@ void runRomanToInt() {
   std::cout << romanToInt("MCMXCIV") << '\n';
 }
 
+// parentheses matcher
+#include <stack>
+#include <unordered_map>
+
+bool isValidParenthesis(const std::string& s) {
+  std::stack<char> stack;
+  static const std::unordered_map<char, char> pairs {
+    {'(', ')'},
+    {'[', ']'},
+    {'{', '}'},
+  };
+
+  for (const char c : s) {
+    if (c == '(' || c == '[' || c == '{')
+      stack.push(c);
+    else {
+      if (stack.empty()) return false;
+      if (c != pairs.at(stack.top())) return false;
+      stack.pop();
+    }
+  }
+
+  return stack.empty();
+}
+
+void runParenthesisMatcher() {
+  std::cout << isValidParenthesis("()") << '\n';
+  std::cout << isValidParenthesis("()[]{}") << '\n';
+  std::cout << isValidParenthesis("(]") << '\n';
+  std::cout << isValidParenthesis("([])") << '\n';
+  std::cout << isValidParenthesis("([)]") << '\n';
+  std::cout << isValidParenthesis(")]") << '\n';
+}
+
 int main() {
-  runRomanToInt();
+  runParenthesisMatcher();
   return 0;
 }

@@ -70,14 +70,6 @@ def arr_to_list(values):
 
 
 def run_add_two_numbers():
-    # result = add_two_numbers(
-    #     arr_to_list([2, 4, 3]),
-    #     arr_to_list([5, 6, 4])
-    # )
-    # while result:
-    #     print(result.val)
-    #     result = result.next
-
     result = add_two_numbers(
         arr_to_list([9, 9, 9, 9, 9, 9, 9]),
         arr_to_list([9, 9, 9, 9])
@@ -86,6 +78,30 @@ def run_add_two_numbers():
         print(result.val)
         result = result.next
 
+# --- 3 (longest substring) ---
+
+
+def length_of_longest_substring(s: str):
+    sub = s[:1]
+    test = ''
+
+    for c in s:
+        if c in test:
+            dup_idx = test.find(c)
+            test = test[dup_idx + 1:]
+        test += c
+
+        if len(test) > len(sub):
+            sub = test
+
+    return sub
+
+
+def run_longest_sub():
+    print(length_of_longest_substring("abcabcbb"))
+    print(length_of_longest_substring("bbbbb"))
+    print(length_of_longest_substring("pwwkew"))
+
 
 if __name__ == '__main__':
-    run_add_two_numbers()
+    ...
