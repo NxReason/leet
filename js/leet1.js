@@ -56,12 +56,31 @@ function runRemoveDuplicates() {
   arr = [-3, -1, 0, 0, 0, 3, 3];
   console.log(removeDuplicatesSet(arr));
   console.log(arr);
-
-  // const set = new Set(arr);
-  // console.log(set);
-  // let sorted = [...set];
-  // sorted.sort((a, b) => a - b);
-  // console.log(sorted);
 }
 
-runRemoveDuplicates();
+// search insert pos
+function searchInsert(nums, target) {
+  let start = 0;
+  let end = nums.length;
+  let test = Math.floor((end + start) / 2);
+
+  while (start < end) {
+    if (nums[test] == target) return test;
+
+    if (nums[test] < target) start = test + 1;
+    if (nums[test] > target) end = test - 1;
+    test = Math.floor((end + start) / 2);
+  }
+
+  return target > nums[start] ? start + 1 : start;
+}
+
+function runSearchInsert() {
+  console.log(searchInsert([1, 3, 5, 6], 5));
+  console.log(searchInsert([1, 3, 5, 6], 2));
+  console.log(searchInsert([1, 3, 5, 6], 7));
+  console.log(searchInsert([1, 3, 5, 6], 4));
+  console.log(searchInsert([1, 3], 2));
+}
+
+runSearchInsert();

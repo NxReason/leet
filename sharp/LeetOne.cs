@@ -60,4 +60,25 @@ public class LeetOne
     var res = MergetTwoLists(ln3, an3);
     res?.Print();
   }
+
+  // remove element
+  public static int RemoveElement(int[] nums, int val)
+  {
+    int[] copy = new int[nums.Length];
+    int notValCount = 0;
+    for (int i = 0; i < nums.Length; i++)
+    {
+      if (nums[i] != val)
+      {
+        copy[notValCount] = nums[i];
+        notValCount++;
+      }
+    }
+    for (int i = 0; i < notValCount; i++)
+    {
+      nums[i] = copy[i];
+    }
+
+    return notValCount;
+  }
 }

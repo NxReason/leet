@@ -102,6 +102,20 @@ def run_longest_sub():
     print(length_of_longest_substring("bbbbb"))
     print(length_of_longest_substring("pwwkew"))
 
+# length of last word
+
+
+def last_word_len(s: str) -> int:
+    parts = s.split(' ')
+    non_ws = next((w for w in parts[::-1] if w != ''))
+    return len(non_ws)
+
+
+def run_last_word_len():
+    print(last_word_len('hello world'))
+    print(last_word_len('   fly me  to  the moon '))
+    print(last_word_len('luffy is still joyboy'))
+
 
 if __name__ == '__main__':
-    ...
+    run_last_word_len()

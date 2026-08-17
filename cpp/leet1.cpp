@@ -68,7 +68,18 @@ void runParenthesisMatcher() {
   std::cout << isValidParenthesis(")]") << '\n';
 }
 
+// index of first occurence
+int strStr(std::string haystack, std::string needle) {
+  return haystack.find(needle);
+}
+
+void runStrStr() {
+  std::cout << strStr("sadbuthat", "but") << '\n';
+  std::cout << strStr("sadbuthat", "sad") << '\n';
+  std::cout << strStr("leetcode", "leeto") << '\n';
+}
+
 int main() {
-  runParenthesisMatcher();
+  runStrStr();
   return 0;
 }
