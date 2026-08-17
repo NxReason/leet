@@ -1,1 +1,1 @@
-﻿LeetOne.RunMergeLists();
+﻿LeetOne.RunPlusOne();

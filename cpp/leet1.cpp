@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <unordered_map>
 
@@ -79,7 +80,56 @@ void runStrStr() {
   std::cout << strStr("leetcode", "leeto") << '\n';
 }
 
+// add binary
+std::string addBinary(const std::string& a, const std::string& b) {
+  int len = std::max(a.size(), b.size());
+  int aOffset = len - a.size();
+  int bOffset = len - b.size();
+
+  std::string out ( len + 1, '0' );
+  int carry = 0;
+  for (int i = len - 1; i >= 0; --i) {
+    auto ax = i - aOffset;
+    auto bx = i - bOffset;
+
+    int an = ax >= 0 ? (a[ax] - '0') : 0;
+    int bn = bx >= 0 ? (b[bx] - '0') : 0;
+
+    int sum = an + bn + carry;
+    switch (sum) {
+      case 0:
+        out[i + 1] = '0';
+        carry = 0;
+        break;
+      case 1:
+        out[i + 1] = '1';
+        carry = 0;
+        break;
+      case 2:
+        out[i + 1] = '0';
+        carry = 1;
+        break;
+      case 3:
+        out[i + 1] = '1';
+        carry = 1;
+        break;
+    }
+  }
+  if (carry == 1) {
+    out[0] = '1';
+  }
+  else {
+    out.erase(0, 1);
+  }
+  return out;
+}
+
+void runAddBinary() {
+  std::cout << addBinary("11", "1") << std::endl;
+  std::cout << addBinary("1010", "1011") << std::endl;
+}
+
 int main() {
-  runStrStr();
+  runAddBinary();
   return 0;
 }

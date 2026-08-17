@@ -102,9 +102,8 @@ def run_longest_sub():
     print(length_of_longest_substring("bbbbb"))
     print(length_of_longest_substring("pwwkew"))
 
+
 # length of last word
-
-
 def last_word_len(s: str) -> int:
     parts = s.split(' ')
     non_ws = next((w for w in parts[::-1] if w != ''))
@@ -117,5 +116,28 @@ def run_last_word_len():
     print(last_word_len('luffy is still joyboy'))
 
 
+# climb stairs
+def climb_stairs(n: int) -> int:
+    memo = {}
+
+    def rec(n: int) -> int:
+        if n in memo:
+            return memo[n]
+
+        if n < 0:
+            return 0
+        if n == 0:
+            return 1
+        memo[n] = rec(n - 2) + rec(n - 1)
+        return memo[n]
+    return rec(n)
+
+
+def run_climb_stairs():
+    print(climb_stairs(2))
+    print(climb_stairs(3))
+    print(climb_stairs(185))
+
+
 if __name__ == '__main__':
-    run_last_word_len()
+    run_climb_stairs()

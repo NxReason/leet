@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public class LeetOne
 {
   public static ListNode? MergetTwoLists(ListNode? list1, ListNode? list2)
@@ -80,5 +82,40 @@ public class LeetOne
     }
 
     return notValCount;
+  }
+
+  // plus one
+  public static int[] PlusOne(int[] digits)
+  {
+    List<int> acc = new(digits.Length);
+    int quot = 1;
+    for (int i = digits.Length - 1; i >= 0; --i)
+    {
+      int curr = digits[i] + quot;
+      quot = curr / 10;
+      acc.Add(curr % 10);
+    }
+    if (quot == 1) acc.Add(quot);
+
+    acc.Reverse();
+    return acc.ToArray();
+  }
+
+  public static void RunPlusOne()
+  {
+    // var values = new int[] { 1, 4, 5, 9 };
+    // PrintArray(PlusOne(values));
+    var values = new int[] { 9 };
+    PrintArray(PlusOne(values));
+  }
+
+  public static void PrintArray(int[] values)
+  {
+    Console.Write("Arr [");
+    for (int i = 0; i < values.Length; i++)
+    {
+      Console.Write($"{values[i]}, ");
+    }
+    Console.WriteLine("]");
   }
 }

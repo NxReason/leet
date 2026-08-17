@@ -83,4 +83,33 @@ function runSearchInsert() {
   console.log(searchInsert([1, 3], 2));
 }
 
-runSearchInsert();
+// sqrt(x)
+function mySqrt(x) {
+  if (x === 1) return 1;
+  const err = 0.00001;
+  let test = x / 2;
+  let diff = test * test - x;
+  let min = 0;
+  let max = x;
+  while (Math.abs(diff) > err) {
+    if (diff > 0) max = test;
+    if (diff < 0) min = test;
+    test = (max - min) / 2 + min;
+    diff = test * test - x;
+  }
+  if (Math.abs(Math.round(test) - test) < err) return Math.round(test);
+  return Math.floor(test);
+}
+
+function runMySqrt() {
+  // console.log(mySqrt(4));
+  // console.log(mySqrt(8));
+  // console.log(mySqrt(9));
+  // console.log(mySqrt(12));
+  // console.log(mySqrt(16));
+  console.log(mySqrt(9801));
+  console.log(Math.sqrt(9801));
+  console.log(99 * 99);
+}
+
+runMySqrt();
